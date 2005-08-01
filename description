@@ -4,7 +4,7 @@ Author: Solange Coupet-Grimal
 Email:Solange.Coupet@cmi.univ-mrs.fr
 Author: William Delobel
 Email: delobel@cmi.univ-mrs.fr
-Institution: Universite de Provence
+Institution: Université de Provence
 Date: July 2005
 Url: http://www.lif-sud.univ-mrs.fr/Rapports/24-2005.html
 Description: This Library provides a generic data flow analysis
@@ -12,4 +12,4 @@ Description: This Library provides a generic data flow analysis
              This algorithm is then used to perform type and 
              shape analysis at bytecode level
              on a first order functionnal language.
-Keywords: Kildall data flow analysis bytecode verification
+Keywords: Kildall, data flow analysis, bytecode verification
