@@ -1,0 +1,21 @@
+lists.vo: lists.v
+lists.vi: lists.v
+m_list.vo: m_list.v nat_bounded_list.vo
+m_list.vi: m_list.v nat_bounded_list.vo
+nat_bounded_list.vo: nat_bounded_list.v pred_list.vo
+nat_bounded_list.vi: nat_bounded_list.v pred_list.vo
+pred_list.vo: pred_list.v ../aux/relations.vo
+pred_list.vi: pred_list.v ../aux/relations.vo
+vector.vo: vector.v ../aux/semilattices.vo
+vector.vi: vector.v ../aux/semilattices.vo
+vector_results.vo: vector_results.v vector.vo ../aux/relations.vo
+vector_results.vi: vector_results.v vector.vo ../aux/relations.vo
+well_founded.vo: well_founded.v vector_results.vo
+well_founded.vi: well_founded.v vector_results.vo
+lists.html: lists.v
+m_list.html: m_list.v nat_bounded_list.html
+nat_bounded_list.html: nat_bounded_list.v pred_list.html
+pred_list.html: pred_list.v ../aux/relations.html
+vector.html: vector.v ../aux/semilattices.html
+vector_results.html: vector_results.v vector.html ../aux/relations.html
+well_founded.html: well_founded.v vector_results.html

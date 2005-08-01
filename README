@@ -1,0 +1,78 @@
+
+********************************************************************************
+*****************   Solange Coupet-Grimal, William Delobel *********************
+*****************                  April 2005              *********************
+********************************************************************************
+                     Coq Development related to the paper entitled 
+********************************************************************************
+************* A uniform and certified approach for two static analyses *********
+********************************************************************************
+*************  URL : http://www.lif-sud.univ-mrs.fr/Rapports/24-2005.html ******
+********************************************************************************
+
+********************************************************************************
+********************   Structure of the Development **************************** 
+********************************************************************************
+
+
+        - Directory aux : 
+
+                - aux_arith.v : basic arithmetic facts.
+                - relations.v : some definitions, including the lexicographic product.
+                - product_results.v : well-foundedness of the lexicographic product.
+                - semilattices.v : implementation of semi-lattices.
+                - tree.v : facts on trees and forests.
+
+        - Directory lists : 
+                - pred_list.v : lists of elements satisfying a certain predicate.
+                - nat_bounded_list.v : lists of bounded natural numbers.
+                - m_list.v : lists of pairs of type nat*Alpha the first component
+                             of which is bounded by a constant. 
+                - vector.v : specification of lists of fixed length (vectors) and 
+                                 related functions.
+                - vector_results.v : facts about sized-lists.
+                - well_founded.v : well-foundedness of the pointwise order on the sized-lists.
+
+        - Directory kildall : 
+                - propa.v : definition of function propagate and elementary properties
+                - propa_property.v : in particular, proof of step 2, section 3.3, 
+                                     paragraph "defining function iterate"
+                                     (lemma propa_nondep_lexprod)
+                - iteraterme.v : step 1 and step 3, section 3.3, 
+                                 paragraph "defining function iterate"
+                - itera.v : step 4, section 3.3, 
+                            paragraph "defining function iterate"
+                - itera_eq.v : step 5, section 3.3, 
+                               paragraph "defining function iterate"
+          
+                - propa_property2.v : properties of function propagate needed to establish
+                                      that Kildall algorithm is a data fow analyser
+                                      
+                - itera_property.v : idem for function iterate
+                - dfa.v : definitions  data flow analysers, bytecode verifiers and
+                          relation between the two notions
+                - kildall.v : definition of Kildall's algorithm
+                - kildall_dfa.v : Cf. section 3.4, (Kildall ss) produces the least stable list,
+                                  greatest than ss.
+                - kildall_bv.v : Cf. section 3.4, Kildall's algorithm is a bytecode verifier.
+
+        -Directory inst :
+                - instructions.v: cf. section 4.1, machine instructions and their successors
+                - machine.v : cf. section 4.1, frames, configurations, 
+                              the one step deterministic reduction, executions, results, 
+                              errors, well-formed configurations and invariance property
+                - inst_types.v : cf. section 4.2, types semi_lattice, StepT and monotonicity,
+                                 Wti, KildallT, equivalence between stability and Wti.
+                - typing.v : value types and related elementary properties.
+                - machine_types.v : cf. section 4.2, well-typed frames, type verification.
+                - substitutions.v : Basics about substitutions. cf. begining section 4.3, page 12. 
+                - inst_shapes.v :  cf.section 4.3 ,  shapes semi_lattice, StepS and monotonicity,
+                                 Wshi, KildallS, equivalence between stability and Wshi.
+		- fresh_variables.v : Auxiliary lemma about fresh mandotory
+				      to perform shape analysis.
+                - machine_shapes.v  : cf.end of section 4.3, shape verification.
+
+
+
+An article about this work is to appear in TYPES 2004 post-proceedings
+(A uniform and certified approach for two static analyses)
