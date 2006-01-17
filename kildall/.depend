@@ -1,0 +1,33 @@
+dfa.vo: dfa.v kildall.vo
+dfa.vi: dfa.v kildall.vo
+itera.vo: itera.v iteraterme.vo
+itera.vi: itera.v iteraterme.vo
+itera_eq.vo: itera_eq.v itera.vo
+itera_eq.vi: itera_eq.v itera.vo
+itera_property.vo: itera_property.v itera_eq.vo propa_property2.vo
+itera_property.vi: itera_property.v itera_eq.vo propa_property2.vo
+iteraterme.vo: iteraterme.v propa_property.vo ../lists/well_founded.vo ../aux/product_results.vo
+iteraterme.vi: iteraterme.v propa_property.vo ../lists/well_founded.vo ../aux/product_results.vo
+kildall.vo: kildall.v itera.vo
+kildall.vi: kildall.v itera.vo
+kildall_bv.vo: kildall_bv.v kildall_dfa.vo
+kildall_bv.vi: kildall_bv.v kildall_dfa.vo
+kildall_dfa.vo: kildall_dfa.v itera_property.vo dfa.vo
+kildall_dfa.vi: kildall_dfa.v itera_property.vo dfa.vo
+propa.vo: propa.v ../lists/vector_results.vo ../lists/m_list.vo
+propa.vi: propa.v ../lists/vector_results.vo ../lists/m_list.vo
+propa_property.vo: propa_property.v propa.vo
+propa_property.vi: propa_property.v propa.vo
+propa_property2.vo: propa_property2.v itera.vo
+propa_property2.vi: propa_property2.v itera.vo
+dfa.html: dfa.v kildall.html
+itera.html: itera.v iteraterme.html
+itera_eq.html: itera_eq.v itera.html
+itera_property.html: itera_property.v itera_eq.html propa_property2.html
+iteraterme.html: iteraterme.v propa_property.html ../lists/well_founded.html ../aux/product_results.html
+kildall.html: kildall.v itera.html
+kildall_bv.html: kildall_bv.v kildall_dfa.html
+kildall_dfa.html: kildall_dfa.v itera_property.html dfa.html
+propa.html: propa.v ../lists/vector_results.html ../lists/m_list.html
+propa_property.html: propa_property.v propa.html
+propa_property2.html: propa_property2.v itera.html
