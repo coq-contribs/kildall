@@ -1147,7 +1147,7 @@ Section machine_types.
     elim Hin; clear Hin; intro Hin.
     subst f; (simpl in *).
     rewrite Hget in Hfcn; inversion Hfcn; subst fcn.
-    rewrite <- (rev_length _ (fcn_args fcnexec)).
+    rewrite <- (lists.rev_length _ (fcn_args fcnexec)).
     generalize Htyping; rewrite <- rev_lin_is_rev; apply list_typing_length.
     inversion Hin.
     apply reduction_length.

@@ -1223,8 +1223,8 @@ Section substitutions.
     inversion Hv; trivial.
     rewrite plus_comm; simpl.
     rewrite rev_length; rewrite rev_length.
-    rewrite (map_length _ _ (apply rho) l).
-    rewrite <- H1; apply map_length.
+    rewrite (lists.map_length _ _ (apply rho) l).
+    rewrite <- H1; apply lists.map_length.
     rewrite plus_comm; simpl; trivial.
     cut (j < length (rev l)).
     clear Cj; intro Cj.
@@ -1236,8 +1236,8 @@ Section substitutions.
     apply (IHl vf rho e v j H1); rewrite rev_lin_is_rev; trivial.
     replace (length (rev vf)) with (length (rev l)); trivial.
     rewrite rev_length; rewrite rev_length.
-    rewrite (map_length _ _ (apply rho) l).
-    rewrite <- H1; symmetry; apply map_length.
+    rewrite (lists.map_length _ _ (apply rho) l).
+    rewrite <- H1; symmetry; apply lists.map_length.
     generalize Cj comp; apply lt_S_neq_lt.
   Qed.
 

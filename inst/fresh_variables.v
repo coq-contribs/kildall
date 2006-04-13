@@ -321,7 +321,7 @@ Section fresh_variables.
     intros s Hins.
     intros h p' Cp'; apply (Hvars2 s Hins h p').
     generalize Cp'; auto with arith.
-    cut (In t (rev l1)); [apply In_rev | generalize case_t; rewrite rev_lin_is_rev; apply element_at_list_in].
+    cut (In t (rev l1)); [apply lists.In_rev | generalize case_t; rewrite rev_lin_is_rev; apply element_at_list_in].
   (* S p <> p 0 *)
     rewrite (element_at_in_replaced') in case_shapes_p0; trivial.
     apply (Hvarsss p0 C0 le ls case_shapes_p0).
@@ -378,7 +378,7 @@ Section fresh_variables.
     intro H; assert (H' : forall (e : Expression), In e (rev lk) -> var_in_tree_bool e p' h = false).
     intros e e_in_rev_lk. 
     assert (e_in_lk : In e lk).
-    generalize e_in_rev_lk; apply In_rev.
+    generalize e_in_rev_lk; apply lists.In_rev.
     generalize (H e e_in_lk); unfold var_not_in_tree; simpl; trivial.
     unfold var_not_in_tree.
     simpl; elim (fold_bool_or_false 
@@ -448,7 +448,7 @@ Section fresh_variables.
     intro H; elim (fold_bool_or_false (f := fun (e : Expression) => var_in_tree_bool e p' h) (rev_lin lk)).
     intros H1 H2; apply H2.
     intros a Ha; apply H.
-    generalize Ha; rewrite rev_lin_is_rev; apply In_rev.
+    generalize Ha; rewrite rev_lin_is_rev; apply lists.In_rev.
     clear Hine e.
     intros e Hine.
     cut (In e l1); [intro Hinel1 | idtac].
@@ -865,7 +865,7 @@ Section fresh_variables.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p'); trivial.
     rewrite rev_lin_is_rev; rewrite <- (rev_involutive (fresh (S p) (S (length l1)) (length (cons_args c)))) in Ha.
-    generalize Ha; apply In_rev.
+    generalize Ha; apply lists.In_rev.
     intros s Hins; elim Hins; clear Hins; intros Hins.
     cut (forall h p' : nat, p' > p -> var_not_in_tree (Node (x n n0) nil) p' h).
     intros Hvars1' h p' Cp'; subst s; simpl.
@@ -878,7 +878,7 @@ Section fresh_variables.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p'); trivial.
     rewrite rev_lin_is_rev; rewrite <- (rev_involutive (fresh (S p) (S (length l1)) (length (cons_args c)))) in Ha.
-    generalize Ha; apply In_rev.
+    generalize Ha; apply lists.In_rev.
     (* F2 prooved *)
     rewrite F in F2; inversion F2.
     elim F; clear F; intros dd ddd; subst p' h.
@@ -918,7 +918,7 @@ Section fresh_variables.
     elim (fold_bool_or_false (f := fun (e: Expression) => var_in_tree_bool e p' h) (fresh (S p) (S (length l1)) (length (cons_args c)))); intros H1 H2.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
 
     intros s Hins; elim Hins; clear Hins; intros Hins.
     cut (forall h p' : nat, p' > p -> var_not_in_tree (Node (x n n0) nil) p' h).
@@ -931,7 +931,7 @@ Section fresh_variables.
     cut (var_in_tree_bool a p' h = false).
     intro H; rewrite H in Ha2; inversion Ha2.
     apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
 
     elim F; clear F; intros; subst p' h.
     cut (n > p); [intro Cn | generalize Cp'; auto with arith].
@@ -968,7 +968,7 @@ Section fresh_variables.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p'); trivial.
     rewrite rev_lin_is_rev; rewrite <- (rev_involutive (fresh (S p) (S (length l1)) (length (cons_args c)))) in Ha.
-    generalize Ha; apply In_rev.
+    generalize Ha; apply lists.In_rev.
 
     intros s Hins; elim Hins; clear Hins; intros Hins.
     intros h p' Cp'; subst s; simpl.
@@ -978,7 +978,7 @@ Section fresh_variables.
     cut (In a (rev_lin (fresh (S p) (S (length l1)) (length (cons_args c))))).
     intro dd; generalize (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp' dd); clear dd.
     unfold var_not_in_tree; rewrite Ha2; intro F2; inversion F2.
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
     cut (In (Node (x n n0) nil) (Node (x n n0) nil :: l1)).
     elim F; clear F; intros F1 F2; subst p' h.
     cut (n>p); [intro Cp'2|auto with arith].
@@ -1019,7 +1019,7 @@ Section fresh_variables.
       (fresh (S p) (S (length l1)) (length (cons_args c)))); intros H1 H2.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
 
     intros s Hins; elim Hins; clear Hins; intros Hins.
     cut (forall h p' : nat, p' > p -> var_not_in_tree (Node (x n n0) nil) p' h).
@@ -1032,7 +1032,7 @@ Section fresh_variables.
     cut (var_in_tree_bool a p' h = false).
     intro H; rewrite H in Ha2; inversion Ha2.
     apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
     elim F; clear F; intros; subst p' h.
     cut (n > p); [intro Cn | generalize Cp'; auto with arith].
     generalize (Hvars1' n0 n Cn); unfold var_not_in_tree.
@@ -1067,7 +1067,7 @@ Section fresh_variables.
     elim (fold_bool_or_false (f := fun (e: Expression) => var_in_tree_bool e p' h) (fresh (S p) (S (length l1)) (length (cons_args c)))); intros H1 H2.
     apply H2; clear H1 H2.
     intros a Ha; apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
 
     intros s Hins; elim Hins; clear Hins; intros Hins.
     cut (forall h p' : nat, p' > p -> var_not_in_tree (Node (x n n0) nil) p' h).
@@ -1080,7 +1080,7 @@ Section fresh_variables.
     cut (var_in_tree_bool a p' h = false).
     intro H; rewrite H in Ha2; inversion Ha2.
     apply (In_fresh a (length (cons_args c)) (S p) (S (length l1)) h p' Cp').
-    rewrite rev_lin_is_rev; apply In_rev; rewrite rev_involutive; trivial.
+    rewrite rev_lin_is_rev; apply lists.In_rev; rewrite rev_involutive; trivial.
     elim F; clear F; intros; subst p' h.
     cut (n > p); [intro Cn | generalize Cp'; auto with arith].
     generalize (Hvars1' n0 n Cn); unfold var_not_in_tree.
@@ -1289,7 +1289,7 @@ Section fresh_variables.
     unfold var_not_in_tree in Hvars1'; simpl in Hvars1'.
     apply Hvars1'; trivial.
     auto with arith.
-    apply In_rev; trivial.
+    apply lists.In_rev; trivial.
     apply Hvars1; left; trivial.
     intros; apply Hvars1; try right; trivial.
     auto with arith.   
@@ -1317,7 +1317,7 @@ Section fresh_variables.
     unfold var_not_in_tree in Hvars1'; simpl in Hvars1'.
     apply Hvars1'; trivial.
     auto with arith.
-    apply In_rev; trivial.
+    apply lists.In_rev; trivial.
     apply Hvars1; left; trivial.
     intros; apply Hvars1; try right; trivial.
     auto with arith.   

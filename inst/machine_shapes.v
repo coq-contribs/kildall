@@ -731,7 +731,7 @@ Section machine_shapes.
     rewrite concat_length.
     rewrite push_list_is_app_rev.
     rewrite concat_length.
-    rewrite <- map_length.
+    rewrite <- lists.map_length.
     rewrite Hstack in h4.
     simpl in h4.
     rewrite rev_length.
@@ -828,8 +828,8 @@ Section machine_shapes.
     rewrite apply_to_forest.
     simpl.
     intro Heq; inversion Heq.
-    rewrite (map_length _ _ (apply rho) l0).
-    rewrite <- H0; symmetry; apply map_length.
+    rewrite (lists.map_length _ _ (apply rho) l0).
+    rewrite <- H0; symmetry; apply lists.map_length.
     cut ((fcn_bytecode gcn)[frm_pc f|C] = i_branch (fcn_size gcn) cnm j Cj); [intro Hinstr | generalize case_instr; apply element_at_unsafe_to_safe].
     apply (Pattern_branch gcn (get_some_in_functions  gcn (frm_fun f)
     functions Hgcn) (frm_pc f) C cnm j Cj _ _ _ Hinstr h1).
@@ -1000,7 +1000,7 @@ Section machine_shapes.
     elim Hin; clear Hin; intro Hin.
     subst f; (simpl in *).
     rewrite Hget in Hfcn; inversion Hfcn; subst fcn.
-    rewrite <- (rev_length _ (fcn_args fcnexec)).
+    rewrite <- (lists.rev_length _ (fcn_args fcnexec)).
     generalize Htyping; apply list_typing_length.
     inversion Hin.
     apply reduction_keeps_wellshaped.
