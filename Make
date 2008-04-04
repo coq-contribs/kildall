@@ -1,4 +1,4 @@
--R . Kildall-static-analysis
+-R . Kildall
 ./kildall/propa_property.v
 ./kildall/kildall.v
 ./kildall/dfa.v

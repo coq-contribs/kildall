@@ -24,8 +24,8 @@
 #########################
 
 OCAMLLIBS:=
-COQLIBS:= -R . Kildall-static-analysis
-COQDOCLIBS:=-R . Kildall-static-analysis
+COQLIBS:= -R . Kildall
+COQDOCLIBS:=-R . Kildall
 
 ##########################
 #                        #
@@ -106,39 +106,7 @@ GFILES:=$(VFILES:.v=.g)
 HTMLFILES:=$(VFILES:.v=.html)
 GHTMLFILES:=$(VFILES:.v=.g.html)
 
-all: ./kildall/propa_property.vo\
-  ./kildall/kildall.vo\
-  ./kildall/dfa.vo\
-  ./kildall/propa.vo\
-  ./kildall/propa_property2.vo\
-  ./kildall/itera_property.vo\
-  ./kildall/itera_eq.vo\
-  ./kildall/kildall_dfa.vo\
-  ./kildall/itera.vo\
-  ./kildall/iteraterme.vo\
-  ./kildall/kildall_bv.vo\
-  ./inst/inst_types.vo\
-  ./inst/fresh_variables.vo\
-  ./inst/instructions.vo\
-  ./inst/typing.vo\
-  ./inst/machine_types.vo\
-  ./inst/inst_shapes.vo\
-  ./inst/substitutions.vo\
-  ./inst/machine_shapes.vo\
-  ./inst/machine.vo\
-  ./aux/tree.vo\
-  ./aux/aux_arith.vo\
-  ./aux/semilattices.vo\
-  ./aux/product_results.vo\
-  ./aux/relations.vo\
-  ./lists/vector_results.vo\
-  ./lists/nat_bounded_list.vo\
-  ./lists/vector.vo\
-  ./lists/well_founded.vo\
-  ./lists/lists.vo\
-  ./lists/pred_list.vo\
-  ./lists/m_list.vo
-
+all: $(VOFILES) 
 spec: $(VIFILES)
 
 gallina: $(GFILES)
@@ -167,8 +135,6 @@ all-gal.ps: $(VFILES)
 
 .PHONY: all opt byte archclean clean install depend html
 
-.SUFFIXES: .v .vo .vi .g .html .tex .g.tex .g.html
-
 %.vo %.glob: %.v
 	$(COQC) -dump-glob $*.glob $(COQDEBUG) $(COQFLAGS) $*
 
@@ -190,13 +156,8 @@ all-gal.ps: $(VFILES)
 %.g.html: %.v %.glob
 	$(COQDOC) -glob-from $*.glob -html -g $< -o $@
 
-%.v.d.raw: %.v
-	$(COQDEP) -slash $(COQLIBS) "$<" > "$@"\
-	  || ( RV=$$?; rm -f "$@"; exit $${RV} )
-
-%.v.d: %.v.d.raw
-	$(HIDE)sed 's/\(.*\)\.vo[[:space:]]*:/\1.vo \1.glob:/' < "$<" > "$@" \
-	  || ( RV=$$?; rm -f "$@"; exit $${RV} )
+%.v.d: %.v
+	$(COQDEP) -glob -slash $(COQLIBS) "$<" > "$@" || ( RV=$$?; rm -f "$@"; exit $${RV} )
 
 byte:
 	$(MAKE) all "OPT:=-byte"
