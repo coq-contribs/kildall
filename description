@@ -13,3 +13,4 @@ Description: This Library provides a generic data flow analysis
              shape analysis at bytecode level
              on a first order functionnal language.
 Keywords: Kildall, data flow analysis, bytecode verification
+Category: Computer Science/Semantics and Compilation/Semantics
