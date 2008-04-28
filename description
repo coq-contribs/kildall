@@ -6,7 +6,7 @@ Author: William Delobel
 Email: delobel@cmi.univ-mrs.fr
 Institution: Université de Provence
 Date: July 2005
-Url: http://www.lif-sud.univ-mrs.fr/Rapports/24-2005.html
+URL: http://www.lif-sud.univ-mrs.fr/Rapports/24-2005.html
 Description: This Library provides a generic data flow analysis
              algorithm and a proof of its correctness.
              This algorithm is then used to perform type and 
