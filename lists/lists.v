@@ -117,7 +117,7 @@ Section lists.
 	end
     end.
 
-  Notation "l '[' k ']'" := (element_at_list l k) (at level 50).
+  Notation "l [ k ]" := (element_at_list l k) (at level 8).
 
   (* if element_at_list returns a result different from None, 
      then k is < length of the list *)
@@ -342,7 +342,7 @@ Implicit Arguments push_list [A].
 Implicit Arguments rev_lin [A].
 Implicit Arguments map_unchanged_elements [A f].
 
-  Notation "l '[' k ']'" := (element_at_list l k) (at level 50).
+  Notation "l [ k ]" := (element_at_list l k) (at level 8).
 
 Section fold_bool.
   (* Results about folding a function returning bool on a list : *)

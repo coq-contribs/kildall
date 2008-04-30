@@ -486,4 +486,4 @@ Section Vector_results.
 
 End Vector_results.
 
-Notation "v '[' i '|' C '->' C2 ']'" := (element_at_irrel _ _ v i C C2) (at level 50).
+Notation "v [ i | C -> C2 ]" := (element_at_irrel _ _ v i C C2) (at level 8).

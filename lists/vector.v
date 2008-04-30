@@ -218,7 +218,7 @@ Ltac Split x:= replace x with (vector_cons (head x) (tail x));
 
 Ltac CaseEq f:=generalize (refl_equal f); pattern f at -1 in |- *; case f.
 
-Notation "v '[' p '<-' e ']'" := (vector_replace v p e) (at level 50).
+Notation "v [ p <- e ]" := (vector_replace v p e) (at level 8).
 Notation "e 'INv' v" := (belong_element_vector v e) (at level 50).
-Notation "v '[' p '|' C ']'" := (element_at v p C) (at level 50).
-Notation "v '[' p '|_]'" := (element_at_unsafe v p) (at level 50).
+Notation "v [ p | C ]" := (element_at v p C) (at level 8).
+Notation "v [ p |_]" := (element_at_unsafe v p) (at level 8).
