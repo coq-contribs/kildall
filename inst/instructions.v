@@ -11,9 +11,6 @@
 
 Section instructions.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
   Require Export lists.
   Require Export vector_results.
   Require Export nat_bounded_list. 

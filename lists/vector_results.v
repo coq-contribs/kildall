@@ -10,7 +10,6 @@
 
 Section Vector_results.
 
-  Add LoadPath "../aux".
   Require Export vector.
   Require Export relations.
   

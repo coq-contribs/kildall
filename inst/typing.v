@@ -12,9 +12,6 @@
 Section typing.
 
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
 
   Require Export inst_types.
 

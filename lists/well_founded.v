@@ -9,7 +9,6 @@
   (*   on vectors					         *)
   (***************************************************************)
 
-Add LoadPath "../aux".
 
 Require Export vector_results.
 Require Export Wellfounded.

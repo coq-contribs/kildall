@@ -11,7 +11,6 @@
 
 Section Vector.
 
-  Add LoadPath "../aux".
 
   Require Export Eqdep.
   Require Export Arith.

@@ -12,9 +12,6 @@
 
 Section machine.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
 
   Require Export instructions.
 

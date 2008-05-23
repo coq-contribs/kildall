@@ -10,8 +10,6 @@
 
 Section propa_property.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
   Require Export propa.
 
   Variable Sigma:Set. (* state set *)

@@ -10,8 +10,6 @@
 
 Section propa.
 
-  Add LoadPath "../lists".
-  Add LoadPath "../aux".
   Require Export vector_results.
   Require Export Wf_nat.
   Require Export m_list.

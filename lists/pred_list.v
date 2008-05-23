@@ -10,7 +10,6 @@
 
 Section pred_list.
   
-  Add LoadPath "../aux".
 
   Require Export Peano_dec.
   Require Export relations.

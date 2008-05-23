@@ -12,9 +12,6 @@
 
 Section fresh_variables.
   
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
 
   Require Export inst_types.
   Require Export machine_types.

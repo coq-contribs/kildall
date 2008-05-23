@@ -11,7 +11,6 @@
 
 Section nat_bounded_list.
   
-  Add LoadPath "../aux".
   
   Require Export pred_list.
   (* bound : *)

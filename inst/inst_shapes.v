@@ -11,9 +11,6 @@
 
 Section inst_shapes.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
 
   Require Export substitutions.
   Require Export kildall_bv.

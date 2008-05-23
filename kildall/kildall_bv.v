@@ -10,8 +10,6 @@
 
 Section kildall_bytecode_verifier.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
 
   Require Export kildall_dfa.
 

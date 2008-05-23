@@ -11,8 +11,6 @@
 
 Section itera_eq.
 
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
   Require Export itera.
 
   Variable Sigma : Set. (* state set *)

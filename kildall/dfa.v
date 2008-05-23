@@ -10,8 +10,6 @@
 
 Section Data_flow_analysis.
 
-  Add LoadPath "../lists".
-  Add LoadPath "../aux".
 
   Require Export kildall.
 

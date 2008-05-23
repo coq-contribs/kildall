@@ -12,7 +12,6 @@
 
 Section m_list.
 
-  Add LoadPath "../aux".
   Require Export nat_bounded_list.
   (* bound *)
   Variable n : nat.

@@ -11,9 +11,6 @@
 
 Section machine_shapes.
   
-  Add LoadPath "../aux".
-  Add LoadPath "../lists".
-  Add LoadPath "../kildall".
 
   Require Export fresh_variables.
   
