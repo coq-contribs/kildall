@@ -527,7 +527,7 @@ Section substitutions.
   Proof.
     induction rho; simpl.
     (* case rho nil : *)
-    intro args; rewrite (map_id Expression args); trivial.
+    intro args; rewrite (map_id args); trivial.
     (* case rho not nil : *)
     intro args.
     rewrite (IHrho args).
