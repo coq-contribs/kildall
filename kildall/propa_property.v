@@ -139,10 +139,10 @@ Section propa_property.
   Lemma propa_nondep_lexprod:
     forall (ss:vector Sigma n) (q:nat) (w:nb_list n) (C:q < n),
       nondep_lexprod (vector Sigma n) (nb_list n) (ra n) (rb n)
-      (Propa n ss w (step' q C (ss[q|C]))) (ss, nb_cons q C w).
+      (Propa ss w (step' q C (ss[q|C]))) (ss, nb_cons q C w).
   Proof.
     intros ss q w C.
-    CaseEq (Propa n ss w (step' q C (ss[q|C]))).
+    CaseEq (Propa ss w (step' q C (ss[q|C]))).
     intros ss' w' Heq.
     cut (ra n ss' ss \/ (ss, w)=(ss', w')).
     intro H; elim H.
@@ -168,8 +168,8 @@ Section propa_property.
   Lemma propa_replace_commut :
     forall  (l:m_list n Sigma) (ss:vector Sigma n) (b:nat) (w w':nb_list n) 
       (C:b < n) (c:Sigma), 
-      fst (Propa n (ss[b<-(sup c (ss[b|C]))]) w l)=
-      (fst (Propa n ss w' l))[b<-(sup_iter (sup c (ss[b|C])) l b)].
+      fst (Propa (ss[b<-(sup c (ss[b|C]))]) w l)=
+      (fst (Propa ss w' l))[b<-(sup_iter (sup c (ss[b|C])) l b)].
   Proof.
     Semi r_is_semilattice.
     intro l; elim l. 
@@ -224,7 +224,7 @@ Section propa_property.
 
   Lemma r_ss_propa_ss:
     forall (l:m_list n Sigma) (q:nat) (ss:vector Sigma n) (w:nb_list n) (C:q < n),
-      r (ss[q|C]) ((fst (Propa n ss w l))[q|C]).
+      r (ss[q|C]) ((fst (Propa ss w l))[q|C]).
   Proof.
     Semi r_is_semilattice.
     intro l; elim l.
@@ -252,8 +252,8 @@ Section propa_property.
 
   Lemma inc_propa_w_propa_replace_ss_w:
     forall (l:m_list n Sigma) (a p:nat) (ss:vector Sigma n) (w:nb_list n) (new:Sigma) (Ca:a<n),
-      p INnb (snd (Propa n ss (nb_list_add_element w a Ca) l)) ->
-      p INnb (snd (Propa n (ss[a<-new]) (nb_list_add_element w a Ca) l)).
+      p INnb (snd (Propa ss (nb_list_add_element w a Ca) l)) ->
+      p INnb (snd (Propa (ss[a<-new]) (nb_list_add_element w a Ca) l)).
   Proof.
     intro l; elim l.
     simpl; intros; trivial.
@@ -321,8 +321,8 @@ Section propa_property.
 
   Lemma no_change_at_p_not_in_w:
     forall (l:m_list n Sigma) (p:nat) (ss:vector Sigma n) (w:nb_list n) (Cp:p<n),
-      ~ (p INnb (snd (Propa n ss w l))) ->
-      (fst (Propa n ss w l))[p|Cp] = ss[p|Cp].
+      ~ (p INnb (snd (Propa ss w l))) ->
+      (fst (Propa ss w l))[p|Cp] = ss[p|Cp].
   Proof.
     Semi r_is_semilattice.
     intro l; elim l.
@@ -361,9 +361,9 @@ Section propa_property.
     forall (p q:nat) (s t:Sigma) (ss:vector Sigma n) (w:nb_list n) 
       (Cp:p < n) (Cq:q < n),
       s=ss[p|Cp]->
-      ~ (p INnb (snd (Propa n ss w (step' p Cp s)))) ->
+      ~ (p INnb (snd (Propa ss w (step' p Cp s)))) ->
       (q,t) INm (step' p Cp s) ->
-      r t ((fst (Propa n ss w (step' p Cp s)))[q|Cq]).
+      r t ((fst (Propa ss w (step' p Cp s)))[q|Cq]).
   Proof.
     Semi r_is_semilattice.
     intros p q s t ss w Cp Cq s_eq.

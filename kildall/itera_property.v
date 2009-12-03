@@ -68,21 +68,21 @@ Section itera_property.
         (* w "=" a "::" w *)
     intros H Hstable.
     intros p0 C0; cut (stable  Sigma n succs step r
-      step_succs_same_length (Itera (Propa n ss w (Step' a p (ss[a|p])))) p0 C0).
-    replace (Itera (Propa n ss w (Step' a p (ss[a|p]))))
+      step_succs_same_length (Itera (Propa ss w (Step' a p (ss[a|p])))) p0 C0).
+    replace (Itera (Propa ss w (Step' a p (ss[a|p]))))
       with (Itera (ss, pred_cons (P n) a p w)).
     trivial.
     generalize (Itera_eq (ss, pred_cons (P n) a p w)); trivial.
     cut (nondep_lexprod (vector Sigma n) (nb_list n)
       (SI_vector_pointwise Sigma r n) (rb n)
-      (Propa n ss w (Step' a p (ss[a|p]))) (ss, pred_cons (P n)a p w));
+      (Propa ss w (Step' a p (ss[a|p]))) (ss, pred_cons (P n)a p w));
     [intro Hpropa | apply (propa_nondep_lexprod Sigma n succs step r sup
       step_succs_same_length eq_Sigma_dec r_is_semilattice ss a w p); trivial].
     cut ((forall (p' : nat) (C' : p' < n),
-      ~ p' INp (snd (Propa n ss w (Step' a p (ss[a|p])))) -> 
+      ~ p' INp (snd (Propa ss w (Step' a p (ss[a|p])))) -> 
       stable Sigma n succs step r step_succs_same_length (fst (Propa
-        n ss w (Step' a p (ss[a|p])))) p' C')); [intro Hstab | idtac].
-    apply (H (Propa n ss w (Step' a p (ss[a|p]))) Hpropa Hstab p0 C0); auto.
+        ss w (Step' a p (ss[a|p])))) p' C')); [intro Hstab | idtac].
+    apply (H (Propa ss w (Step' a p (ss[a|p]))) Hpropa Hstab p0 C0); auto.
     (intros p' C' H').
     compare p' a; intro e.
     (*p' = a*)
@@ -120,7 +120,7 @@ Section itera_property.
         (Step' p' C' ((fst (ss, pred_cons (P n) a p w))[p'|C'])) 
         (q, t) H1)).
     simpl.
-    destruct (Propa n ss w (Step' a p (ss[a|p]))); simpl.
+    destruct (Propa ss w (Step' a p (ss[a|p]))); simpl.
     clear H0 H1.
     intros H0 H1.
     generalize (m_list_get_witness (Step' p' C' (ss[p'|C'])) (q, t) H1).
@@ -133,7 +133,7 @@ Section itera_property.
 
   Remark transition :
     forall (ss : vector Sigma n) (a : nat) (w : nb_list n) (C : a < n),
-      let PSS := (Propa n ss w (Step' a C (ss[a|C]))) in
+      let PSS := (Propa ss w (Step' a C (ss[a|C]))) in
         let IPSS := (Itera PSS) in
           ra n (fst PSS) (fst (ss, pred_cons (P n) a C w)) \/ 
           (fst PSS = fst (ss, pred_cons (P n) a C w))  ->
@@ -177,7 +177,7 @@ Section itera_property.
     right; trivial.
     intros a Ca wa ex Heq.
     rewrite <- ex.
-    replace (Itera x) with (Itera (Propa n ss' wa (Step' a Ca (ss'[a|Ca])))).
+    replace (Itera x) with (Itera (Propa ss' wa (Step' a Ca (ss'[a|Ca])))).
     subst x; apply transition.
     apply (propa_decrease Sigma n succs step r sup step_succs_same_length 
       eq_Sigma_dec r_is_semilattice ss' a wa Ca).
@@ -207,8 +207,8 @@ Section itera_property.
       [intro H'''; rewrite <- H' in H'''; trivial | idtac].
     elim H''; trivial.
     intros a Ca wa ex Heq ts monostep H'.
-    cut (ra n ts (Itera (Propa n ss wa (Step' a Ca (ss[a|Ca])))) \/
-      ts = Itera (Propa n ss wa (Step' a Ca (ss[a|Ca])))); 
+    cut (ra n ts (Itera (Propa ss wa (Step' a Ca (ss[a|Ca])))) \/
+      ts = Itera (Propa ss wa (Step' a Ca (ss[a|Ca])))); 
     [intro H'''; rewrite <- Heq in H'''; trivial | idtac].
     apply Hrec; auto.
     rewrite ex.

@@ -45,7 +45,7 @@ Section iteraterme.
       | (ss, w) =>
         match w with
           | pred_nil => ss
-          | pred_cons p C w1 => f0 (Propa n ss w1 (Step' p C (ss[p|C])))
+          | pred_cons p C w1 => f0 (Propa ss w1 (Step' p C (ss[p|C])))
         end
     end.
 
@@ -95,7 +95,7 @@ Section iteraterme.
     intros k Ck; destruct k; [inversion Ck | simpl; trivial].
     (* w = q::w1 *)
     intros q C w1 Heq1 Hrec2.
-    elim (Hrec2 (Propa n ss w1 (Step' q C (ss[q|C])))).
+    elim (Hrec2 (Propa ss w1 (Step' q C (ss[q|C])))).
     intros ss1 Hex.
     exists ss1.
     elim Hex.

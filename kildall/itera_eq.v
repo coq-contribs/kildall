@@ -41,7 +41,7 @@ Section itera_eq.
             | pred_nil => Itera (ss, pred_nil (P n)) = ss
             | pred_cons p C w' =>
               Itera (ss, pred_cons (P n) p C w') =
-              Itera (Propa n ss w' (Step' p C (ss[p|C])))
+              Itera (Propa ss w' (Step' p C (ss[p|C])))
           end
       end.
   Proof.
@@ -64,7 +64,7 @@ Section itera_eq.
     case (iteraterme Sigma n succs step r sup eq_Sigma_dec step_succs_same_length 
       r_is_semilattice wfr (ss, pred_cons (P n) p C w)).
     case (iteraterme Sigma n succs step r sup eq_Sigma_dec step_succs_same_length 
-      r_is_semilattice wfr (Propa n ss w (Step' p C (ss[p|C])))).
+      r_is_semilattice wfr (Propa ss w (Step' p C (ss[p|C])))).
     intros x H' x0 H1.
     elim H'; clear H'; intros q H'.
     elim H1; clear H1; intros q0 H1.
@@ -75,7 +75,7 @@ Section itera_eq.
         (fun ssb : vector Sigma n* nb_list n => match ssb with
                                                      | (sb, wb) => sb
                                                    end) (S (q + q0))
-        (Propa n ss w (Step' p C (ss[p|C])))).
+        (Propa ss w (Step' p C (ss[p|C])))).
     apply H'.
     auto with arith.
     generalize (H1 (S (S (q+q0)))); clear H1; intro H1.

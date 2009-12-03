@@ -38,16 +38,16 @@ Section propa_property2.
   (* *)
   Lemma propa_decrease :
     forall (ss : vector Sigma n) (a : nat) (w : nb_list n) (C : a < n),
-      ra n (fst (Propa n ss w (Step' a C (ss[a|C]))))
+      ra n (fst (Propa ss w (Step' a C (ss[a|C]))))
       (fst (ss, nb_cons a C w)) \/
-      fst (Propa n ss w (Step' a C (ss[a|C]))) = fst (ss, nb_cons a C w).
+      fst (Propa ss w (Step' a C (ss[a|C]))) = fst (ss, nb_cons a C w).
   Proof.
     intros ss a w C.
     intros.
     replace (fst (ss, nb_cons a C w)) with (fst (ss, w)).
     case (propa_case Sigma r sup eq_Sigma_dec r_is_semilattice n ss
-      (fst (Propa n ss w (Step' a C (ss[a|C])))) w
-      (snd (Propa n ss w (Step' a C (ss[a|C]))))
+      (fst (Propa ss w (Step' a C (ss[a|C])))) w
+      (snd (Propa ss w (Step' a C (ss[a|C]))))
       (Step' a C (ss[a|C]))).
     symmetry; apply surjective_pairing.
     left; assumption.
@@ -70,7 +70,7 @@ Section propa_property2.
 
   Lemma no_change_at_p_not_in_succs :
     forall (l : m_list n Sigma) (q : nat) (ss : vector Sigma n) (w : nb_list n) (Cq : q<n),
-      ~ q INfst l -> (fst (Propa n ss w l))[q|Cq] = ss[q|Cq].
+      ~ q INfst l -> (fst (Propa ss w l))[q|Cq] = ss[q|Cq].
   Proof.
     intro l; elim l; simpl.
     trivial.
@@ -93,7 +93,7 @@ Section propa_property2.
 
 
   Lemma propa_lub : forall (l : m_list n Sigma) (q :nat) (ss : vector Sigma n) (w : nb_list n) (Cq : q<n), 
-    q INfst l -> r ((fst (Propa n ss w l))[q|Cq]) (sup_iter (ss[q|Cq]) l q).
+    q INfst l -> r ((fst (Propa ss w l))[q|Cq]) (sup_iter (ss[q|Cq]) l q).
   Proof. 
     Semi r_is_semilattice.
     intro l; elim l; simpl.
@@ -156,7 +156,7 @@ Section propa_property2.
   Lemma r_propa_ss_ts :
     forall (a : nat) (ss ts : vector Sigma n) (q : nat) (w : nb_list n) (Ca : a < n) (Cq : q < n),
       monotonestep -> ra n ts ss \/ ts = ss -> stables Sigma n succs step r step_succs_same_length ts ->
-      r ((fst (Propa n ss w (Step' a Ca (ss[a|Ca]))))[q|Cq]) (ts[q|Cq]).
+      r ((fst (Propa ss w (Step' a Ca (ss[a|Ca]))))[q|Cq]) (ts[q|Cq]).
   Proof.
     intros a ss ts q wa  Ca Cq monostep H Hstable.
     Semi r_is_semilattice.
