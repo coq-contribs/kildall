@@ -23,12 +23,14 @@ Section tree.
   Hypothesis eq_N_dec : forall (n n' : N), {n=n'} + {n<>n'}.
   Hypothesis eq_L_dec : forall (l l' : L), {l=l'} + {l<>l'}.
 
+  Unset Elimination Schemes.
 
   Inductive tree : Set :=
     | Leaf : L -> tree
     | Node : N -> (list tree) -> tree.
 
-  Reset tree_rect.
+  Set Elimination Schemes.
+
   Notation forest := (list tree).
  
   (* computes the number of nodes in the tree : *)
