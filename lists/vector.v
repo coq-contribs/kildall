@@ -9,6 +9,8 @@
   (*             and related functions.			         *)
   (***************************************************************)
 
+Global Set Asymmetric Patterns.
+
 Section Vector.
 
 

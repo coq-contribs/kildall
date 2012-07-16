@@ -9,6 +9,8 @@
   (*             and related results			         *)
   (***************************************************************)
 
+Global Set Asymmetric Patterns.
+
 Ltac CaseEq f:=generalize (refl_equal f); pattern f at -1 in |- *; case f.
 
 Section lists.

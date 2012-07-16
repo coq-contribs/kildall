@@ -8,6 +8,8 @@
   (*   Content : list of elements satisfying a certain predicate *)
   (***************************************************************)
 
+Global Set Asymmetric Patterns.
+
 Section pred_list.
   
 
