@@ -1147,7 +1147,7 @@ Section substitutions.
     inversion H0; subst; clear H0.
     rewrite apply_elem_in_subst.
     simpl.
-    rewrite concat_map; simpl. 
+    rewrite map_app; simpl.
     elim (eq_nat_dec p p); intro H; [clear H | elim H; trivial].
     elim (eq_nat_dec h h); intro H; [clear H | elim H; trivial].
     replace (map (apply_elem_tree (mksubst p h (tree_name_to_tree_Name t))) (fresh p (S h) m)) with (fresh p (S h) m).
@@ -1159,7 +1159,7 @@ Section substitutions.
     apply (Hnotin (S j)).
     rewrite plus_comm; simpl; rewrite plus_comm; trivial.
     rewrite <- Hrho; rewrite <- list_concat_cons; simpl; trivial.
-    rewrite concat_map; simpl; rewrite <- list_concat_cons; trivial.
+    rewrite map_app; simpl; rewrite <- list_concat_cons; trivial.
     symmetry; apply apply_elem_forest_unchanged.
     symmetry; apply make_substitution_invariant.
     apply (lt_n_Sn h).
