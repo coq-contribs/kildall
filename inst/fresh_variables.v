@@ -9,6 +9,7 @@
   (*			to perform shape analysis                *)
   (***************************************************************)
 
+Local Unset Injection On Proofs.
 
 Section fresh_variables.
   

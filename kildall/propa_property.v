@@ -8,6 +8,8 @@
   (*   Content : some basic properties of function propagate     *)
   (***************************************************************)
 
+Local Unset Injection On Proofs.
+
 Section propa_property.
 
   Require Export propa.

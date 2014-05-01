@@ -10,6 +10,8 @@
   (*   	         couples are less than a certain bound	         *)
   (***************************************************************)
 
+Local Unset Injection On Proofs.
+
 Section m_list.
 
   Require Export nat_bounded_list.
