@@ -9,6 +9,8 @@
   (*	       establish that Kildall's algorithm is a dfa       *)
   (***************************************************************)
 
+Unset Standard Proposition Elimination Names.
+
 Section itera_property.
 
   Require Export itera_eq.

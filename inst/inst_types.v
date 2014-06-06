@@ -9,6 +9,8 @@
   (*             type analysis                                   *)
   (***************************************************************)
 
+Unset Standard Proposition Elimination Names.
+
 Section inst_types.
 
   Require Export machine.

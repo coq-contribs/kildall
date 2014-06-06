@@ -8,6 +8,8 @@
   (*   Content :	specification of kildall's algorithm     *)
   (***************************************************************)
 
+Unset Standard Proposition Elimination Names.
+
 Section kildall.
 
   Require Export itera.

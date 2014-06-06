@@ -9,6 +9,8 @@
     (*             shape analysis                                  *) 
     (***************************************************************)
 
+Unset Standard Proposition Elimination Names.
+
 Section inst_shapes.
 
 

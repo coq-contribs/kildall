@@ -10,6 +10,7 @@
   (*   	         couples are less than a certain bound	         *)
   (***************************************************************)
 
+Unset Standard Proposition Elimination Names.
 Local Unset Injection On Proofs.
 
 Section m_list.
