@@ -136,7 +136,7 @@ Section fresh_variables.
     rewrite element_at_in_replaced' in case_shapes_p0; trivial; apply (Hv p0 C0 ls le case_shapes_p0).
   Qed.
 
-  Ltac TrivCase H h := elim (H h h); intro ddd; [clear ddd | elim ddd; trivial].
+  Ltac TrivCase H h := let ddd := fresh "ddd" in elim (H h h); intro ddd; [clear ddd | elim ddd; trivial].
 
 
   Lemma Hvars_Top_S :  forall (n : nat) (ss : vector Sigma_S n) (w : nb_list n)
