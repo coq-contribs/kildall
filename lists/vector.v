@@ -49,7 +49,7 @@ Section Vector.
     unfold eq_list; intros n v.
     dependent inversion v; auto.
     intro h; absurd  ((S n0)=0); auto.
-  Save.
+  Qed.
 
   Hint Resolve empty_dep.
 
@@ -58,7 +58,7 @@ Section Vector.
     intro v.
     apply (eq_dep_eq nat vector O).
     apply empty_dep; auto.
-  Save.
+  Qed.
 
   Hint Resolve empty.
 
@@ -102,7 +102,7 @@ Section Vector.
     intros t e.
     rewrite e; simpl.
     auto.
-  Save.
+  Qed.
 
   Definition hd' := fun  (n:nat)(v:(vector (S n))) =>
     let (a, H):= (non_empty n v) in a.
@@ -115,7 +115,7 @@ Section Vector.
     intros x H; elim H.
     clear H; intros X H.
     injection H; auto.
-  Save.
+  Qed.
 
   (* pointwise order on vectors : *)
   Inductive vector_pointwise (r:relation A):
