@@ -10,7 +10,6 @@
   (***************************************************************)
 
 Unset Standard Proposition Elimination Names.
-Local Unset Injection On Proofs.
 
 Section fresh_variables.
   
