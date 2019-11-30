@@ -49,6 +49,6 @@ Section relations.
 
 End relations.
 
-Implicit Arguments strict [Alpha].
-Implicit Arguments inv [Alpha].
-Implicit Arguments ascending_chain [Alpha].
+Arguments strict [Alpha].
+Arguments inv [Alpha].
+Arguments ascending_chain [Alpha].

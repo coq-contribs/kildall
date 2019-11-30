@@ -32,15 +32,15 @@ Section product_results.
 
   Qed.
 
-  Definition nodep_prod_of_dep (c : sigS (fun a : Alpha => Beta)) :
+  Definition nodep_prod_of_dep (c : sigT (fun a : Alpha => Beta)) :
     Alpha * Beta := let (x, y) := c in (x, y).
 
   (* comparison of the two lexicographic products : *)
   Lemma strongest_r_R :
     forall (a a0 : Alpha) (b b0 : Beta),
       r (a0, b0) (a, b) ->
-      R (existS (fun _ : Alpha => Beta) a0 b0)
-      (existS (fun _ : Alpha => Beta) a b).
+      R (existT (fun _ : Alpha => Beta) a0 b0)
+      (existT (fun _ : Alpha => Beta) a b).
   Proof.
     intros a1 a2 b1 b2.
     intro H.
@@ -51,7 +51,7 @@ Section product_results.
 
   (* from accessibility by R to accessibility by r : *)
   Remark R_to_r :
-    forall x : sigS (fun a : Alpha => Beta),
+    forall x : sigT (fun a : Alpha => Beta),
       Acc R x -> Acc r (nodep_prod_of_dep x).
   Proof.
     simple induction 1.
@@ -62,7 +62,7 @@ Section product_results.
     intro y; case y; clear y.
     intros a0 b0 Infr.
     replace (a0, b0) with
-      (nodep_prod_of_dep (existS (fun a : Alpha => Beta) a0 b0)).
+      (nodep_prod_of_dep (existT (fun a : Alpha => Beta) a0 b0)).
     apply H2.
     apply strongest_r_R; assumption.
     simpl; reflexivity.
@@ -75,7 +75,7 @@ Section product_results.
     intros H c.
     case c; clear c.
     intros a b.
-    replace (a, b) with (nodep_prod_of_dep (existS (fun _ : Alpha => Beta) a b)).
+    replace (a, b) with (nodep_prod_of_dep (existT (fun _ : Alpha => Beta) a b)).
     apply R_to_r.
     apply H.
     simpl; reflexivity.

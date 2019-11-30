@@ -82,7 +82,7 @@ Section Vector.
     {a:A &{t:(vector n)|v=(vector_cons n a t)}}. 
   Proof.
     intros n v.
-    cut (sigS (fun a:A=>
+    cut (sigT (fun a:A=>
       (sig (fun t:(vector n)=>(eq_list (S n) v (S n) (vector_cons n a t)))))).
     intros H; elim H; clear H.
     intros a H; elim H; clear H.
@@ -199,20 +199,20 @@ Fixpoint map2 (A B C : Set) (f : A-> B -> C) (n : nat) {struct n}:
 Definition Map2 (A : Set) (f : binop A) (n:nat):= map2 A A A f n.
 
 
-Implicit Arguments vector_cons [A n].
-Implicit Arguments vector_nil [A].
-Implicit Arguments head [A n].
-Implicit Arguments tail [A n].
-Implicit Arguments empty [A].
-Implicit Arguments split_vector [A n].
-Implicit Arguments vector_replace [A n].
-Implicit Arguments belong_element_vector [A n].
-Implicit Arguments element_at [A n].
-Implicit Arguments vector_map [A B n].
-Implicit Arguments map2 [A B C n].
-Implicit Arguments Map2 [A].
-Implicit Arguments constant_list [A].
-Implicit Arguments element_at_unsafe [A n].
+Arguments vector_cons [A n].
+Arguments vector_nil [A].
+Arguments head [A n].
+Arguments tail [A n].
+Arguments empty [A].
+Arguments split_vector [A n].
+Arguments vector_replace [A n].
+Arguments belong_element_vector [A n].
+Arguments element_at [A n].
+Arguments vector_map [A B] _ [n].
+Arguments map2 [A B C] _ [n].
+Arguments Map2 [A].
+Arguments constant_list [A].
+Arguments element_at_unsafe [A n].
 
 Ltac Split x:= replace x with (vector_cons (head x) (tail x)); 
   [trivial(*idtac?*) | symmetry; exact (split_vector x)].

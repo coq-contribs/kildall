@@ -338,11 +338,11 @@ Section lists.
 
 End lists.
 
-Implicit Arguments split_k_elements [A].
-Implicit Arguments element_at_list [A].
-Implicit Arguments push_list [A].
-Implicit Arguments rev_lin [A].
-Implicit Arguments map_unchanged_elements [A f].
+Arguments split_k_elements [A].
+Arguments element_at_list [A].
+Arguments push_list [A].
+Arguments rev_lin [A].
+Arguments map_unchanged_elements [A f].
 
   Notation "l '[' k ']'" := (element_at_list l k) (at level 50).
 
@@ -502,12 +502,12 @@ Section fold_bool.
 
 End fold_bool.
 
-Implicit Arguments fold_bool_and_first_false  [A f].
-Implicit Arguments fold_bool_and_false [A f].
-Implicit Arguments fold_bool_and_true  [A f].
-Implicit Arguments fold_bool_or_first_true  [A f].
-Implicit Arguments fold_bool_or_false  [A f].
-Implicit Arguments fold_bool_or_true  [A f].
+Arguments fold_bool_and_first_false  [A f].
+Arguments fold_bool_and_false [A f].
+Arguments fold_bool_and_true  [A f].
+Arguments fold_bool_or_first_true  [A f].
+Arguments fold_bool_or_false  [A f].
+Arguments fold_bool_or_true  [A f].
 
 
 Lemma map_length : forall (A B : Set) (f : A -> B) (l : list A), 

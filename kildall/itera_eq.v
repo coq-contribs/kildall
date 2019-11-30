@@ -86,4 +86,4 @@ Section itera_eq.
 
 End itera_eq.
 
-Implicit Arguments itera_eq [Sigma n step r sup].
+Arguments itera_eq [Sigma n] _ [step r sup].

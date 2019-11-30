@@ -290,7 +290,7 @@ Section tree.
 
 End tree.
 
-Implicit Arguments Node [N L].
-Implicit Arguments Leaf [N L].
+Arguments Node [N L].
+Arguments Leaf [N L].
 
 

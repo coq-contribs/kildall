@@ -51,20 +51,20 @@ Section nat_bounded_list.
 
 End nat_bounded_list.
 
-Implicit Arguments nb_nil [n].
-Implicit Arguments nb_cons [n].
-Implicit Arguments nb_list_add_element [n].
-Implicit Arguments nb_list_belong [n].
-Implicit Arguments nb_list_belong_dec [n].
-Implicit Arguments nb_list_get_witness [n].
-Implicit Arguments nb_list_belong_add [n].
-Implicit Arguments nb_list_belong_rem [n].
-Implicit Arguments nb_list_remove [n].
-Implicit Arguments nb_length [n].
-Implicit Arguments lt_nb_length [n].
-Implicit Arguments nb_list_equiv [n].
-Implicit Arguments nb_list_belong_convert [n].
-Implicit Arguments nb_list_convert_belong [n].
+Arguments nb_nil [n].
+Arguments nb_cons [n].
+Arguments nb_list_add_element [n].
+Arguments nb_list_belong [n].
+Arguments nb_list_belong_dec [n].
+Arguments nb_list_get_witness [n].
+Arguments nb_list_belong_add [n].
+Arguments nb_list_belong_rem [n].
+Arguments nb_list_remove [n].
+Arguments nb_length [n].
+Arguments lt_nb_length [n].
+Arguments nb_list_equiv [n].
+Arguments nb_list_belong_convert [n].
+Arguments nb_list_convert_belong [n].
 
 Notation "a 'INnb' l" := (nb_list_belong l a) (at level 50).
 Notation "l =nb= m" := (nb_list_equiv l m) (at level 50).

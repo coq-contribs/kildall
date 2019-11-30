@@ -25,7 +25,7 @@ Section typing.
       | _,_ => err
     end.
     
-  Implicit Arguments fold_left2 [A B C].
+  Arguments fold_left2 [A B C].
   Require Export Bool.  
 
   Inductive tree_list_typing : list value -> list name -> Prop :=

@@ -10,9 +10,6 @@
   (*   	         couples are less than a certain bound	         *)
   (***************************************************************)
 
-Unset Standard Proposition Elimination Names.
-Local Unset Injection On Proofs.
-
 Section m_list.
 
   Require Export nat_bounded_list.
@@ -410,19 +407,19 @@ Section m_list.
 
 End m_list.
 
-Implicit Arguments m_nil [A n].
-Implicit Arguments m_cons [A n].
-Implicit Arguments m_list_add_element [A n].
-Implicit Arguments m_list_belong [A n].
-Implicit Arguments m_list_belong_fst [A n].
-Implicit Arguments m_list_belong_snd [A n].
-Implicit Arguments m_list_belong_dec [A n].
-Implicit Arguments m_list_get_witness [A n].
-Implicit Arguments m_length [A n].
-Implicit Arguments lt_m_length [A n].
-Implicit Arguments combine [A n].
-Implicit Arguments m_list_remove [A n].
-Implicit Arguments m_list_equiv [A n].
+Arguments m_nil [n A].
+Arguments m_cons [n A].
+Arguments m_list_add_element [n A].
+Arguments m_list_belong [n A].
+Arguments m_list_belong_fst [n A].
+Arguments m_list_belong_snd [n A].
+Arguments m_list_belong_dec [n A].
+Arguments m_list_get_witness [n A].
+Arguments m_length [n A].
+Arguments lt_m_length [n A].
+Arguments combine [n A].
+Arguments m_list_remove [n A].
+Arguments m_list_equiv [n A].
 
   Notation "e 'INm' l" := (m_list_belong l e) (at level 50).
   Notation "e 'INfst' l" := (m_list_belong_fst l e) (at level 50).

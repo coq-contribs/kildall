@@ -318,22 +318,22 @@ Section pred_list.
 End pred_list.
 
 
-Implicit Arguments pred_nil [A].
-Implicit Arguments pred_cons [A].
-Implicit Arguments pred_list_add_element [A P].
-Implicit Arguments pred_list_belong [A P].
-Implicit Arguments pred_list_to_list [A P].
-Implicit Arguments list_to_pred_list [A P].
-Implicit Arguments pred_list_belong_dec [A P].
-Implicit Arguments pred_list_get_witness [A P].
-Implicit Arguments pred_list_belong_add [A P].
-Implicit Arguments pred_list_belong_rem [A P].
-Implicit Arguments pred_list_add_already_there [A P].
-Implicit Arguments pred_list_add_already_there_added [A P].
-Implicit Arguments pred_list_belong_added [A P].
-Implicit Arguments pred_list_remove [A P].
-Implicit Arguments pred_length [A P].
-Implicit Arguments lt_pred_length [A P].
+Arguments pred_nil [A].
+Arguments pred_cons [A].
+Arguments pred_list_add_element [A P].
+Arguments pred_list_belong [A P].
+Arguments pred_list_to_list [A P].
+Arguments list_to_pred_list [A P].
+Arguments pred_list_belong_dec [A P].
+Arguments pred_list_get_witness [A P].
+Arguments pred_list_belong_add [A P].
+Arguments pred_list_belong_rem [A P].
+Arguments pred_list_add_already_there [A P].
+Arguments pred_list_add_already_there_added [A P].
+Arguments pred_list_belong_added [A P].
+Arguments pred_list_remove [A P].
+Arguments pred_length [A P].
+Arguments lt_pred_length [A P].
 
   Notation "a 'INp' l" := (pred_list_belong l a) (at level 50).
 
@@ -412,13 +412,13 @@ Section pred_list_equivalence.
 
 End pred_list_equivalence.
 
-Implicit Arguments pred_list_equiv [A P Q].
-Implicit Arguments pred_list_equiv_refl [A P].
-Implicit Arguments pred_list_equiv_trans [A P Q R].
-Implicit Arguments pred_list_equiv_sym [A P Q].
-Implicit Arguments pred_list_equiv_split [A P Q].
-Implicit Arguments pred_list_split_equiv [A P Q].
-Implicit Arguments pred_list_equiv_belong [A P Q].
+Arguments pred_list_equiv [A P Q].
+Arguments pred_list_equiv_refl [A P].
+Arguments pred_list_equiv_trans [A P Q R].
+Arguments pred_list_equiv_sym [A P Q].
+Arguments pred_list_equiv_split [A P Q].
+Arguments pred_list_split_equiv [A P Q].
+Arguments pred_list_equiv_belong [A P Q].
 
   Notation "l '=p=' m" := (pred_list_equiv l m) (at level 50).
 
@@ -497,10 +497,10 @@ Section pred_list_convertion.
 End pred_list_convertion.
 
 
-Implicit Arguments pred_list_convert [A P Q].
-Implicit Arguments pred_list_convert_equiv [A P Q].
-Implicit Arguments pred_list_convert_length [A P Q].
-Implicit Arguments pred_list_belong_convert [A P Q].
-Implicit Arguments pred_list_convert_belong [A P Q].
+Arguments pred_list_convert [A P Q].
+Arguments pred_list_convert_equiv [A P Q].
+Arguments pred_list_convert_length [A P Q].
+Arguments pred_list_belong_convert [A P Q].
+Arguments pred_list_convert_belong [A P Q].
 
 

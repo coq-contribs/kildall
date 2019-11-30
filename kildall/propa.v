@@ -99,4 +99,4 @@ Section propa.
 
 End propa.
 
-Implicit Arguments propagate [Sigma n].
+Arguments propagate [Sigma] _ _ [n].
